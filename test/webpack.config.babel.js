@@ -40,6 +40,7 @@ export default {
 	plugins: [
 		new WXAppWebpackPlugin({
 			extensions: [`.${ext}`, '.js'],
+			appJSONFile: 'app2.json'
 		}),
 	],
 	devtool: 'source-map',

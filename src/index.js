@@ -64,7 +64,8 @@ export default class WXAppPlugin {
 			extensions: ['.js'],
 			commonModuleName: 'common.js',
 			enforceTarget: true,
-			assetsChunkName: '__assets_chunk_name__'
+			assetsChunkName: '__assets_chunk_name__',
+			appJSONFile: 'app.json'
 			// base: undefined,
 		});
 
@@ -245,7 +246,7 @@ export default class WXAppPlugin {
 	}
 
 	async getEntryResource() {
-		const appJSONFile = resolve(this.base, 'app.json');
+		const appJSONFile = resolve(this.base, this.options.appJSONFile);
 		const { pages = [], subPackages = [], tabBar = {} } = await readJson(
 			appJSONFile
 		);

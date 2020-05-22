@@ -284,6 +284,7 @@ export default class WXAppPlugin {
 		const componentBase = parse(instance).dir;
 		for (const relativeComponent of values(usingComponents)) {
 			if (relativeComponent.indexOf('plugin://') === 0) continue;
+			if (relativeComponent.indexOf('plugin-private://') === 0) continue;
 			const component = resolve(componentBase, relativeComponent);
 			if (!components.has(component)) {
 				components.add(relative(this.base, component));
